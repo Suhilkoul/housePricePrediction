@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
 	return render_template('app.html')
 	
-@app.route('/API/get_location_names', methods=['GET'])
+@app.route('/get_location_names', methods=['GET'])
 def get_location_names():
     response = jsonify({
         'locations': util.get_location_names()
@@ -16,7 +16,7 @@ def get_location_names():
 
     return response
 
-@app.route('/API/predict_home_price', methods=['GET', 'POST'])
+@app.route('/predict_home_price', methods=['GET', 'POST'])
 def predict_home_price():
     total_sqft = float(request.form['total_sqft'])
     location = request.form['location']
